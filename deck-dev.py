@@ -12,16 +12,8 @@ CARDS = COURT_CARDS + NUMBERED_CARDS
 
 
 class Suit:
-    """Suit.
-    """
-
 
     def __init__(self, suit: str):
-        """__init__.
-
-        Args:
-            suit (str): suit
-        """
 
         if suit in SUITS:
             self.name = suit
@@ -30,23 +22,13 @@ class Suit:
 
     @property
     def value(self):
-        """value.
-        """
 
         return SUITS.index(self.name) + 1
 
 
 class Card:
-    """Card.
-    """
-
 
     def __init__(self, card: str):
-        """__init__.
-
-        Args:
-            card (str): card
-        """
 
         if card in CARDS:
             self.name = card
@@ -55,23 +37,12 @@ class Card:
 
     @property
     def value(self):
-        """value.
-        """
         return CARDS.index(self.name) + 1
 
 
 class DeckCard:
-    """DeckCard.
-    """
-
 
     def __init__(self, card, suit):
-        """__init__.
-
-        Args:
-            card:
-            suit:
-        """
 
         self.card = Card(card)
         self.suit = Suit(suit)
@@ -84,32 +55,21 @@ class DeckCard:
 
     @property
     def value(self):
-        """value.
-        """
         return self.suit.value * self.card.value
 
     def __int__(self):
-        """__int__.
-        """
 
         return self.value
 
     def __repr__(self):
-        """__repr__.
-        """
 
         payload = {'name': self.name, 'value': self.value}
         return "<DeckCard {name} (numeric value {value})>".format(**payload)
 
 
 class Deck:
-    """Deck.
-    """
-
 
     def __init__(self):
-        """__init__.
-        """
         #self.cards = [DeckCard(card, suit) for card in CARDS for suit in SUITS]
         self.cards = \
             {
@@ -125,3 +85,4 @@ if __name__ == "__main__":
 
     import pprint
     pprint.pprint(a.cards)
+
